@@ -2,6 +2,11 @@
 
 package lesson1
 
+import java.beans.IntrospectionException
+import java.io.File
+import java.io.IOException
+import java.util.Comparator
+
 /**
  * Сортировка времён
  *
@@ -32,8 +37,64 @@ package lesson1
  *
  * В случае обнаружения неверного формата файла бросить любое исключение.
  */
-fun sortTimes(inputName: String, outputName: String) {
-    TODO()
+fun sortTimes(inputName: String, outputName: String) { // Трудоемкость Nlg2N + 3(N-1) = O(Nlg2N), Ресурсоемкость O(N)
+    val format = Regex(".+[.]txt")
+    if (!format.containsMatchIn(inputName))
+        throw IOException()
+
+    val outputStream = File(outputName).bufferedWriter()
+    val am = mutableListOf<String>()
+    val pm = mutableListOf<String>()
+
+    for (line in File(inputName).readLines()) { // N - 1, O(3)
+        if (line.split(" ")[1] == "AM")
+            if (line.split(" ")[0].split(":")[0] == "12") {
+                val newForm = line.split(" ")[0].replaceRange(0, 2, "00")
+                am.add(newForm)
+            } else {
+                am.add(line.split(" ")[0])
+            }
+        else {
+            if (line.split(" ")[0].split(":")[0] == "12") {
+                val newForm = line.split(" ")[0].replaceRange(0, 2, "00")
+                pm.add(newForm)
+            } else {
+                pm.add(line.split(" ")[0])
+            }
+        }
+    }
+
+    am.sort() // ***
+    pm.sort() // *** Nlg2N, O(N)
+
+    for (i in 0 until am.size) { // *
+        if (am[i].split(":")[0] == "00") {
+            val newForm = "12:" + am[i].split(":")[1] + ":" + am[i].split(":")[2]
+            am.removeAt(i)
+            am.add(i, newForm)
+        }
+    }
+
+    for (i in 0 until pm.size) { // *  N-1, O(4)
+        if (pm[i].split(":")[0] == "00") {
+            val newForm = "12:" + pm[i].split(":")[1] + ":" + pm[i].split(":")[2]
+            pm.removeAt(i)
+            pm.add(i, newForm)
+        }
+    }
+
+    for (data in am) { // **
+        outputStream.write("$data AM")
+        outputStream.newLine()
+    }
+
+    for (i in 0 until pm.size) { // ** N-1, O(2)
+        outputStream.write(pm[i] + " PM")
+        if (i != pm.size - 1) {
+            outputStream.newLine()
+        }
+    }
+    outputStream.close()
 }
 
 /**
@@ -63,7 +124,38 @@ fun sortTimes(inputName: String, outputName: String) {
  * В случае обнаружения неверного формата файла бросить любое исключение.
  */
 fun sortAddresses(inputName: String, outputName: String) {
-    TODO()
+    val format = Regex(".+[.]txt")
+    if (!format.containsMatchIn(inputName))
+        throw IOException()
+
+    val outputStream = File(outputName).bufferedWriter()
+    var affiliation = mutableMapOf<String, MutableList<String>>()
+
+    for (line in File(inputName).readLines()) {
+        val listFullName: MutableList<String> = if (affiliation[line.split(" - ")[1]] != null) {
+            affiliation[line.split(" - ")[1]]!!
+        } else mutableListOf()
+
+        listFullName.add(line.split(" - ")[0])
+        affiliation[line.split(" - ")[1]] = listFullName
+    }
+
+    for (data in affiliation) {
+        data.value.sort()
+    }
+
+    affiliation = affiliation.toSortedMap(compareBy<String> { it.split(" ")[0] }.thenBy
+    { it.split(" ")[1].toInt() })
+
+    for (i in 0 until affiliation.size) { // **
+        outputStream.write(
+            affiliation.keys.toTypedArray()[i] + " - " +
+                    (affiliation[affiliation.keys.toTypedArray()[i]]?.joinToString(", "))
+        )
+        if (i != affiliation.size - 1)
+            outputStream.newLine()
+    }
+    outputStream.close()
 }
 
 /**
@@ -97,7 +189,37 @@ fun sortAddresses(inputName: String, outputName: String) {
  * 121.3
  */
 fun sortTemperatures(inputName: String, outputName: String) {
-    TODO()
+    val format = Regex(".+[.]txt")
+    if (!format.containsMatchIn(inputName))
+        throw IOException()
+
+    val outputStream = File(outputName).bufferedWriter()
+    val negative = mutableListOf<Double>()
+    val positive = mutableListOf<Double>()
+
+    for (line in File(inputName).readLines()) {
+        if (line[0] == '-') {
+            negative.add(line.split("-")[1].toDouble())
+        } else {
+            positive.add(line.toDouble())
+        }
+    }
+
+    positive.sort()
+    negative.sort()
+
+    for (i in negative.size - 1 downTo 0) { // **
+        outputStream.write("-" + negative[i].toString())
+        outputStream.newLine()
+    }
+
+    for (i in 0 until positive.size){
+        outputStream.write(positive[i].toString())
+        if (i != positive.size - 1)
+            outputStream.newLine()
+    }
+
+    outputStream.close()
 }
 
 /**
