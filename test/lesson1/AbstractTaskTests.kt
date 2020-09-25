@@ -45,6 +45,12 @@ abstract class AbstractTaskTests : AbstractFileTests() {
         } finally {
             File("temp.txt").delete()
         }
+        try {
+            sortTimes("input/MyTests/time_inMy1.txt", "temp.txt")
+            assertFileContent("temp.txt", File("input/MyTests/time_outMy1.txt").readLines())
+        } finally {
+            File("temp.txt").delete()
+        }
     }
 
     protected fun sortAddresses(sortAddresses: (String, String) -> Unit) {
@@ -70,6 +76,12 @@ abstract class AbstractTaskTests : AbstractFileTests() {
         try {
             sortAddresses("input/addr_in3.txt", "temp.txt")
             assertFileContent("temp.txt", File("input/addr_out3.txt").readLines())
+        } finally {
+            File("temp.txt").delete()
+        }
+        try {
+            sortAddresses("input/MyTests/addr_inMy1.txt", "temp.txt")
+            assertFileContent("temp.txt", File("input/MyTests/addr_outMy1.txt").readLines())
         } finally {
             File("temp.txt").delete()
         }
@@ -115,6 +127,12 @@ abstract class AbstractTaskTests : AbstractFileTests() {
                     121.3
                 """.trimIndent()
             )
+        } finally {
+            File("temp.txt").delete()
+        }
+        try {
+            sortTemperatures("input/MyTests/temp_inMy1.txt", "temp.txt")
+            assertFileContent("temp.txt", File("input/MyTests/temp_outMy1.txt").readLines())
         } finally {
             File("temp.txt").delete()
         }
