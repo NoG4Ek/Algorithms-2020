@@ -123,39 +123,33 @@ fun sortTimes(inputName: String, outputName: String) { // Трудоемкост
  *
  * В случае обнаружения неверного формата файла бросить любое исключение.
  */
-fun sortAddresses(inputName: String, outputName: String) {
+fun sortAddresses(inputName: String, outputName: String) { // Трудоемкость 2Nlg2N + (N-1) = O(Nlg2N), Ресурсоемкость O(N)
     val format = Regex(".+[.]txt")
     if (!format.containsMatchIn(inputName))
         throw IOException()
 
-    val outputStream = File(outputName).bufferedWriter()
-    var affiliation = mutableMapOf<String, MutableList<String>>()
+    val affiliation = mutableMapOf<String, MutableSet<String>>()
 
     for (line in File(inputName).readLines()) {
-        val listFullName: MutableList<String> = if (affiliation[line.split(" - ")[1]] != null) {
-            affiliation[line.split(" - ")[1]]!!
-        } else mutableListOf()
-
-        listFullName.add(line.split(" - ")[0])
-        affiliation[line.split(" - ")[1]] = listFullName
+        affiliation.getOrPut(line.split(" - ")[1]) { mutableSetOf() }.add(line.split(" - ")[0]) // N - 1, O(N)
     }
 
-    for (data in affiliation) {
-        data.value.sort()
+    val o = buildString {
+        affiliation.keys.sortedWith(
+            compareBy({ it.split(" ")[0] }, // Nlg2N
+                { it.split(" ")[1].toInt() })
+        ).forEach {
+            append(it)
+            append(" - ")
+            val sR = affiliation[it]!! //Nlg2N, O(1)
+                .sorted()
+                .joinToString(separator = ", ")
+            append(sR)
+            append(System.lineSeparator())
+        }
     }
 
-    affiliation = affiliation.toSortedMap(compareBy<String> { it.split(" ")[0] }.thenBy
-    { it.split(" ")[1].toInt() })
-
-    for (i in 0 until affiliation.size) { // **
-        outputStream.write(
-            affiliation.keys.toTypedArray()[i] + " - " +
-                    (affiliation[affiliation.keys.toTypedArray()[i]]?.joinToString(", "))
-        )
-        if (i != affiliation.size - 1)
-            outputStream.newLine()
-    }
-    outputStream.close()
+    File(outputName).writeText(o)
 }
 
 /**
@@ -188,33 +182,33 @@ fun sortAddresses(inputName: String, outputName: String) {
  * 99.5
  * 121.3
  */
-fun sortTemperatures(inputName: String, outputName: String) {
+fun sortTemperatures(inputName: String, outputName: String) { // Трудоемкость 3(N-1) = O(N - 1), Ресурсоемкость O(N)
     val format = Regex(".+[.]txt")
     if (!format.containsMatchIn(inputName))
         throw IOException()
 
     val outputStream = File(outputName).bufferedWriter()
-    val negative = mutableListOf<Double>()
-    val positive = mutableListOf<Double>()
+    var positive = mutableListOf<Int>()
+    var negative = mutableListOf<Int>()
 
-    for (line in File(inputName).readLines()) {
+    for (line in File(inputName).readLines()) { // N - 1
         if (line[0] == '-') {
-            negative.add(line.split("-")[1].toDouble())
+            negative.add(line.replace(".", "").replace("-", "").toInt())
         } else {
-            positive.add(line.toDouble())
+            positive.add(line.replace(".", "").toInt())
         }
     }
 
-    positive.sort()
-    negative.sort()
+    positive = countingSort(positive.toIntArray(), 5000).toMutableList() // N - 1, O(N)
+    negative = countingSort(negative.toIntArray(), 2730).toMutableList() // N - 1, O(N)
 
-    for (i in negative.size - 1 downTo 0) { // **
-        outputStream.write("-" + negative[i].toString())
+    for (i in negative.size - 1 downTo 0) {
+        outputStream.write("-" + negative[i] / 10 + "." + negative[i] % 10)
         outputStream.newLine()
     }
 
-    for (i in 0 until positive.size){
-        outputStream.write(positive[i].toString())
+    for (i in 0 until positive.size) {
+        outputStream.write("" + positive[i] / 10 + "." + positive[i] % 10)
         if (i != positive.size - 1)
             outputStream.newLine()
     }
@@ -270,7 +264,6 @@ fun sortSequence(inputName: String, outputName: String) {
  * Результат: second = [1 3 4 9 9 13 15 20 23 28]
  */
 fun <T : Comparable<T>> mergeArrays(first: Array<T>, second: Array<T?>) {
-    for (i in first.indices) second[i] = first[i]
-    second.sort()
+    TODO()
 }
 
