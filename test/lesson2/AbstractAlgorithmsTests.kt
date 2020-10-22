@@ -46,6 +46,8 @@ abstract class AbstractAlgorithmsTests {
         assertEquals(3 to 4, optimizeBuyAndSell("input/buysell_in1.txt"))
         assertEquals(8 to 12, optimizeBuyAndSell("input/buysell_in2.txt"))
         assertEquals(3 to 4, optimizeBuyAndSell("input/buysell_in3.txt"))
+        assertEquals(511 to 512, optimizeBuyAndSell("input/MyTests/buysell_inMy1.txt"))
+        assertEquals(1 to 2, optimizeBuyAndSell("input/MyTests/buysell_inMy2.txt"))
         try {
             val expectedAnswer = generatePrices(1000)
             assertEquals(expectedAnswer, optimizeBuyAndSell("temp_prices.txt"))
@@ -73,7 +75,16 @@ abstract class AbstractAlgorithmsTests {
         }
     }
 
+    private fun readStringFromFile(inputName: String): String = File(inputName).readText()
+
     fun longestCommonSubstring(longestCommonSubstring: (String, String) -> String) {
+        assertEquals("     :", longestCommonSubstring(":D     :D", ":3     :3"))
+        assertEquals(
+            readStringFromFile("input/MyTests/comSubResult_inMy1.txt"), longestCommonSubstring(
+                readStringFromFile("input/MyTests/comSubFirst_inMy1.txt"),
+                readStringFromFile("input/MyTests/comSubSecond_inMy1.txt")
+            )
+        )
         assertEquals("", longestCommonSubstring("мой мир", "я"))
         assertEquals("зд", longestCommonSubstring("здравствуй мир", "мы здесь"))
         assertEquals("СЕРВАТОР", longestCommonSubstring("ОБСЕРВАТОРИЯ", "КОНСЕРВАТОРЫ"))
@@ -129,6 +140,7 @@ abstract class AbstractAlgorithmsTests {
         assertEquals(2, calcPrimesNumber(4))
         assertEquals(4, calcPrimesNumber(10))
         assertEquals(8, calcPrimesNumber(20))
+        assertEquals(125, calcPrimesNumber(700))
         assertEquals(1000, calcPrimesNumber(7920))
         assertEquals(1229, calcPrimesNumber(10000))
         assertEquals(2262, calcPrimesNumber(20000))
