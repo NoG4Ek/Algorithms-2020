@@ -80,7 +80,42 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
      * Средняя
      */
     override fun remove(element: T): Boolean {
-        TODO()
+        if (!contains(element)) return false
+        root = recombine(root, element)
+        size--
+        return true
+    }
+
+    private fun recombine(root: KtBinarySearchTree.Node<T>?, element: T): KtBinarySearchTree.Node<T>? {
+        if (root == null) return root
+        when {
+            element < root.value -> {
+                root.left = recombine(root.left, element)
+                return root
+            }
+            element > root.value -> {
+                root.right = recombine(root.right, element)
+                return root
+            }
+            else -> {
+                if (root.right == null) {
+                    return root.left
+                } else {
+                    if (root.left == null) {
+                        return root.right
+                    }
+                }
+
+                var lastL = root.right
+                while (lastL?.left != null){
+                    lastL = lastL.left
+                }
+                val newNode = Node(lastL!!.value)
+                newNode.left = root.left
+                newNode.right = recombine(root.right, lastL.value)
+                return newNode
+            }
+        }
     }
 
     override fun comparator(): Comparator<in T>? =
@@ -90,6 +125,16 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
         BinarySearchTreeIterator()
 
     inner class BinarySearchTreeIterator internal constructor() : MutableIterator<T> {
+        private val stack = ArrayDeque<Node<T>>()
+
+        init {
+            root?.let { pushToLeft(it) }
+        }
+
+        private fun pushToLeft(node: Node<T>) {
+            stack.add(node)
+            node.left?.let { pushToLeft(it) }
+        }
 
         /**
          * Проверка наличия следующего элемента
@@ -102,8 +147,10 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
          * Средняя
          */
         override fun hasNext(): Boolean {
-            // TODO
-            throw NotImplementedError()
+            if (stack.isEmpty()) {
+                return false
+            }
+            return true
         }
 
         /**
@@ -120,8 +167,9 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
          * Средняя
          */
         override fun next(): T {
-            // TODO
-            throw NotImplementedError()
+            val node = stack.peek()
+            node.right?.let { pushToLeft(it) }
+            return node.value
         }
 
         /**

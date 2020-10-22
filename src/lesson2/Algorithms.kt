@@ -2,6 +2,12 @@
 
 package lesson2
 
+import lesson1.countingSort
+import java.io.File
+import java.io.IOException
+import java.util.*
+
+
 /**
  * Получение наибольшей прибыли (она же -- поиск максимального подмассива)
  * Простая
@@ -26,8 +32,47 @@ package lesson2
  *
  * В случае обнаружения неверного формата файла бросить любое исключение.
  */
-fun optimizeBuyAndSell(inputName: String): Pair<Int, Int> {
-    TODO()
+fun optimizeBuyAndSell(inputName: String): Pair<Int, Int> { // O(N), O(1)
+    val format = Regex(".+[.]txt")
+    if (!format.containsMatchIn(inputName))
+        throw IOException()
+
+    val diff = mutableListOf<Int>()
+    var firstTime = true
+    var first = 0
+    var second = 0
+
+    for (line in File(inputName).readLines()) {
+        if (firstTime) {
+            first = line.toInt()
+            firstTime = false
+        } else {
+            second = line.toInt()
+            diff.add(second - first)
+            first = second
+        }
+    }
+
+    var ans = diff[0]
+    var l = 0
+    var r = 0
+    var sum = 0
+    var minSum = 0
+    var minPos = -1
+    for (i in 0 until diff.size) {
+        sum += diff[i]
+        val cur = sum - minSum
+        if (cur > ans) {
+            ans = cur
+            l = minPos + 1
+            r = i
+        }
+        if (sum < minSum) {
+            minSum = sum
+            minPos = i
+        }
+    }
+    return Pair(l + 1, r + 2)
 }
 
 /**
@@ -94,8 +139,38 @@ fun josephTask(menNumber: Int, choiceInterval: Int): Int {
  * Если имеется несколько самых длинных общих подстрок одной длины,
  * вернуть ту из них, которая встречается раньше в строке first.
  */
-fun longestCommonSubstring(first: String, second: String): String {
-    TODO()
+fun longestCommonSubstring(first: String, second: String): String { // O(N^2), O(1)
+    val coll = mutableListOf<MutableList<Int>>()
+
+    for (i in first.indices){
+        coll.add(mutableListOf())
+        for (j in second.indices){
+            coll[i].add(0)
+        }
+    }
+    var max = 0
+    var place = 0
+    for (i in first.indices) {
+        for (j in second.indices) {
+            if (first[i] == second[j]) {
+                if (i != 0 && j != 0) {
+                    coll[i][j] = coll[i - 1][j - 1] + 1
+                    if (max < coll[i][j]) {
+                        max = coll[i][j]
+                        place = i
+                    }
+                } else {
+                    coll[i][j] = 1
+                    if (max == 0) {
+                        max = 1
+                        place = i
+                    }
+                }
+            }
+        }
+    }
+
+    return first.substring(place - max + 1, place + 1)
 }
 
 /**
@@ -108,6 +183,24 @@ fun longestCommonSubstring(first: String, second: String): String {
  * Справка: простым считается число, которое делится нацело только на 1 и на себя.
  * Единица простым числом не считается.
  */
-fun calcPrimesNumber(limit: Int): Int {
-    TODO()
+// Количество простых чисел до N : N / lnN
+fun calcPrimesNumber(limit: Int): Int { // O(Nlog(logN)), O(1)
+    if (limit > 1) {
+        val primeN = BooleanArray(limit + 1)
+        var count = 0
+        Arrays.fill(primeN, true)
+        primeN[0] = false
+        primeN[1] = false
+        for (i in 2 until primeN.size) { // N / P (P - простое число)
+            if (primeN[i]) {
+                count++
+                var j = 2
+                while (i * j < primeN.size) {
+                    primeN[i * j] = false
+                    ++j
+                }
+            }
+        }
+        return count
+    } else return 0
 }

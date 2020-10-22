@@ -6,6 +6,7 @@ import java.beans.IntrospectionException
 import java.io.File
 import java.io.IOException
 import java.util.Comparator
+import kotlin.math.abs
 
 /**
  * Сортировка времён
@@ -123,7 +124,10 @@ fun sortTimes(inputName: String, outputName: String) { // Трудоемкост
  *
  * В случае обнаружения неверного формата файла бросить любое исключение.
  */
-fun sortAddresses(inputName: String, outputName: String) { // Трудоемкость 2Nlg2N + (N-1) = O(Nlg2N), Ресурсоемкость O(N)
+fun sortAddresses(
+    inputName: String,
+    outputName: String
+) { // Трудоемкость 2Nlg2N + (N-1) = O(Nlg2N), Ресурсоемкость O(N)
     val format = Regex(".+[.]txt")
     if (!format.containsMatchIn(inputName))
         throw IOException()
@@ -182,34 +186,27 @@ fun sortAddresses(inputName: String, outputName: String) { // Трудоемко
  * 99.5
  * 121.3
  */
-fun sortTemperatures(inputName: String, outputName: String) { // Трудоемкость 3(N-1) = O(N - 1), Ресурсоемкость O(N)
+fun sortTemperatures(inputName: String, outputName: String) { // Трудоемкость 2(N-1) = O(N - 1), Ресурсоемкость O(N)
     val format = Regex(".+[.]txt")
     if (!format.containsMatchIn(inputName))
         throw IOException()
 
     val outputStream = File(outputName).bufferedWriter()
-    var positive = mutableListOf<Int>()
-    var negative = mutableListOf<Int>()
+    var temp = mutableListOf<Int>()
 
     for (line in File(inputName).readLines()) { // N - 1
-        if (line[0] == '-') {
-            negative.add(line.replace(".", "").replace("-", "").toInt())
-        } else {
-            positive.add(line.replace(".", "").toInt())
-        }
+        temp.add(line.replace(".", "").toInt() + 2730)
     }
 
-    positive = countingSort(positive.toIntArray(), 5000).toMutableList() // N - 1, O(N)
-    negative = countingSort(negative.toIntArray(), 2730).toMutableList() // N - 1, O(N)
+    temp = countingSort(temp.toIntArray(), 5000 + 2730).toMutableList() // N - 1, O(N)
 
-    for (i in negative.size - 1 downTo 0) {
-        outputStream.write("-" + negative[i] / 10 + "." + negative[i] % 10)
-        outputStream.newLine()
-    }
-
-    for (i in 0 until positive.size) {
-        outputStream.write("" + positive[i] / 10 + "." + positive[i] % 10)
-        if (i != positive.size - 1)
+    for (i in 0 until temp.size) {
+        val old = temp[i] - 2730
+        if (old < 0)
+            outputStream.write("-" + abs(old / 10) + "." + abs(old) % 10)
+        else
+            outputStream.write("" + abs(old / 10) + "." + abs(old) % 10)
+        if (i != temp.size - 1)
             outputStream.newLine()
     }
 
