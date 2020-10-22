@@ -79,7 +79,7 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
      *
      * Средняя
      */
-    override fun remove(element: T): Boolean {
+    override fun remove(element: T): Boolean { // 	Ср: O(log n) Худшая: O(n)
         if (!contains(element)) return false
         root = recombine(root, element)
         size--
@@ -107,7 +107,7 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
                 }
 
                 var lastL = root.right
-                while (lastL?.left != null){
+                while (lastL?.left != null) {
                     lastL = lastL.left
                 }
                 val newNode = Node(lastL!!.value)
@@ -125,6 +125,9 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
         BinarySearchTreeIterator()
 
     inner class BinarySearchTreeIterator internal constructor() : MutableIterator<T> {
+        private var firstNext = false
+        private var oneRemove = false
+        private lateinit var node: Node<T>
         private val stack = ArrayDeque<Node<T>>()
 
         init {
@@ -132,8 +135,9 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
         }
 
         private fun pushToLeft(node: Node<T>) {
-            stack.add(node)
+            stack.addLast(node)
             node.left?.let { pushToLeft(it) }
+            node.right?.let { pushToLeft(it) }
         }
 
         /**
@@ -167,8 +171,12 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
          * Средняя
          */
         override fun next(): T {
-            val node = stack.peek()
-            node.right?.let { pushToLeft(it) }
+            if (!firstNext) {
+                firstNext = true
+            }
+            oneRemove = false
+            node = stack.first()
+            stack.removeFirst()
             return node.value
         }
 
@@ -185,8 +193,11 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
          * Сложная
          */
         override fun remove() {
-            // TODO
-            throw NotImplementedError()
+            if (!firstNext) throw IllegalStateException()
+            if (oneRemove) throw IllegalStateException()
+
+            remove(node.value)
+            oneRemove = true
         }
 
     }

@@ -111,10 +111,10 @@ abstract class AbstractBinarySearchTreeTest {
         val random = Random()
         for (iteration in 1..100) {
             val controlSet = mutableSetOf<Int>()
-            val removeIndex = random.nextInt(20) + 1
+            val removeIndex = random.nextInt(100) + 1
             var toRemove = 0
-            for (i in 1..20) {
-                val newNumber = random.nextInt(100)
+            for (i in 1..100) {
+                val newNumber = random.nextInt(1000)
                 controlSet.add(newNumber)
                 if (i == removeIndex) {
                     toRemove = newNumber
@@ -200,7 +200,7 @@ abstract class AbstractBinarySearchTreeTest {
                     "BinarySearchTreeIterator doesn't traverse the tree correctly."
                 )
             }
-            assertFailsWith<IllegalStateException>("Something was supposedly returned after the elements ended") {
+            assertFailsWith<NoSuchElementException>("Something was supposedly returned after the elements ended") {
                 binaryIter.next()
             }
             println("All clear!")
