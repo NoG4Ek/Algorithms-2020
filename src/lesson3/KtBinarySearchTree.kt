@@ -2,6 +2,7 @@ package lesson3
 
 import java.util.*
 import kotlin.math.max
+import kotlin.properties.Delegates
 
 // attention: Comparable is supported but Comparator is not
 class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), CheckableSortedSet<T> {
@@ -79,11 +80,14 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
      *
      * Средняя
      */
+    private var ex by Delegates.notNull<Boolean>()
     override fun remove(element: T): Boolean { // 	Ср: O(log n) Худшая: O(n)
-        if (!contains(element)) return false
+        ex = false
         root = recombine(root, element)
-        size--
-        return true
+        if (!ex) {
+            size--
+        }
+        return ex
     }
 
     private fun recombine(root: KtBinarySearchTree.Node<T>?, element: T): KtBinarySearchTree.Node<T>? {
@@ -98,6 +102,7 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
                 return root
             }
             else -> {
+                ex = true
                 if (root.right == null) {
                     return root.left
                 } else {

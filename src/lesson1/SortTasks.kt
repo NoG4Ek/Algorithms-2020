@@ -2,10 +2,8 @@
 
 package lesson1
 
-import java.beans.IntrospectionException
 import java.io.File
 import java.io.IOException
-import java.util.Comparator
 import kotlin.math.abs
 
 /**
@@ -44,54 +42,27 @@ fun sortTimes(inputName: String, outputName: String) { // Трудоемкост
         throw IOException()
 
     val outputStream = File(outputName).bufferedWriter()
-    val am = mutableListOf<String>()
-    val pm = mutableListOf<String>()
+    val time = mutableListOf<String>()
 
     for (line in File(inputName).readLines()) { // N - 1, O(3)
-        if (line.split(" ")[1] == "AM")
-            if (line.split(" ")[0].split(":")[0] == "12") {
-                val newForm = line.split(" ")[0].replaceRange(0, 2, "00")
-                am.add(newForm)
-            } else {
-                am.add(line.split(" ")[0])
-            }
+        val hours: StringBuilder = StringBuilder()
+        val tr: StringBuilder = StringBuilder()
+
+        if (line.split(":")[0] == "12") hours.append("00") else hours.append(line.split(":")[0])
+        tr.append(line.split(":").subList(1, 3).joinToString(separator = ":"))
+
+        time.add("$hours:$tr")
+    }
+
+    time.sortWith(compareBy({ it.split(" ")[1] }, { it.split(" ")[0] })) // ***
+
+    for (i in 0 until time.size) { // ** N-1, O(2)
+        if (time[i].split(":")[0] == "00")
+            outputStream.write("12:" + time[i].split(":").subList(1, 3).joinToString(separator = ":"))
         else {
-            if (line.split(" ")[0].split(":")[0] == "12") {
-                val newForm = line.split(" ")[0].replaceRange(0, 2, "00")
-                pm.add(newForm)
-            } else {
-                pm.add(line.split(" ")[0])
-            }
+            outputStream.write(time[i])
         }
-    }
-
-    am.sort() // ***
-    pm.sort() // *** Nlg2N, O(N)
-
-    for (i in 0 until am.size) { // *
-        if (am[i].split(":")[0] == "00") {
-            val newForm = "12:" + am[i].split(":")[1] + ":" + am[i].split(":")[2]
-            am.removeAt(i)
-            am.add(i, newForm)
-        }
-    }
-
-    for (i in 0 until pm.size) { // *  N-1, O(4)
-        if (pm[i].split(":")[0] == "00") {
-            val newForm = "12:" + pm[i].split(":")[1] + ":" + pm[i].split(":")[2]
-            pm.removeAt(i)
-            pm.add(i, newForm)
-        }
-    }
-
-    for (data in am) { // **
-        outputStream.write("$data AM")
-        outputStream.newLine()
-    }
-
-    for (i in 0 until pm.size) { // ** N-1, O(2)
-        outputStream.write(pm[i] + " PM")
-        if (i != pm.size - 1) {
+        if (i != time.size - 1) {
             outputStream.newLine()
         }
     }
@@ -187,6 +158,8 @@ fun sortAddresses(
  * 121.3
  */
 fun sortTemperatures(inputName: String, outputName: String) { // Трудоемкость 2(N-1) = O(N - 1), Ресурсоемкость O(N)
+    val minTemp = 273 * 10
+    val maxTemp = 500 * 10
     val format = Regex(".+[.]txt")
     if (!format.containsMatchIn(inputName))
         throw IOException()
@@ -195,13 +168,13 @@ fun sortTemperatures(inputName: String, outputName: String) { // Трудоем�
     var temp = mutableListOf<Int>()
 
     for (line in File(inputName).readLines()) { // N - 1
-        temp.add(line.replace(".", "").toInt() + 2730)
+        temp.add(line.replace(".", "").toInt() + minTemp)
     }
 
-    temp = countingSort(temp.toIntArray(), 5000 + 2730).toMutableList() // N - 1, O(N)
+    temp = countingSort(temp.toIntArray(), maxTemp + minTemp).toMutableList() // N - 1, O(N)
 
     for (i in 0 until temp.size) {
-        val old = temp[i] - 2730
+        val old = temp[i] - minTemp
         if (old < 0)
             outputStream.write("-" + abs(old / 10) + "." + abs(old) % 10)
         else

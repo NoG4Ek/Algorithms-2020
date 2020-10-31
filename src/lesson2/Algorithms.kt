@@ -139,10 +139,10 @@ fun josephTask(menNumber: Int, choiceInterval: Int): Int {
  * Если имеется несколько самых длинных общих подстрок одной длины,
  * вернуть ту из них, которая встречается раньше в строке first.
  */
-fun longestCommonSubstring(first: String, second: String): String { // O(N^2), O(1)
+fun longestCommonSubstring(first: String, second: String): String { // O(N^2), O(N)
     val coll = mutableListOf<MutableList<Int>>()
 
-    for (i in first.indices){
+    for (i in first.indices) { // Рес: O(N)
         coll.add(mutableListOf())
         for (j in second.indices){
             coll[i].add(0)
@@ -184,7 +184,7 @@ fun longestCommonSubstring(first: String, second: String): String { // O(N^2), O
  * Единица простым числом не считается.
  */
 // Количество простых чисел до N : N / lnN
-fun calcPrimesNumber(limit: Int): Int { // O(Nlog(logN)), O(1)
+fun calcPrimesNumber(limit: Int): Int { // O(Nlog(logN)), O(N)
     if (limit > 1) {
         val primeN = BooleanArray(limit + 1)
         var count = 0
