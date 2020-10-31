@@ -90,7 +90,7 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
         return ex
     }
 
-    private fun recombine(root: KtBinarySearchTree.Node<T>?, element: T): KtBinarySearchTree.Node<T>? {
+    private fun recombine(root: Node<T>?, element: T): Node<T>? {
         if (root == null) return root
         when {
             element < root.value -> {
