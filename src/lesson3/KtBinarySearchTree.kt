@@ -10,6 +10,7 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
     private class Node<T>(
         val value: T
     ) {
+        var parent: Node<T>? = null
         var left: Node<T>? = null
         var right: Node<T>? = null
     }
@@ -58,10 +59,12 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
             comparison < 0 -> {
                 assert(closest.left == null)
                 closest.left = newNode
+                closest.left!!.parent = closest
             }
             else -> {
                 assert(closest.right == null)
                 closest.right = newNode
+                closest.right!!.parent = closest
             }
         }
         size++
@@ -111,12 +114,14 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
                     }
                 }
 
+                val parent = root.parent
                 var lastL = root.right
                 while (lastL?.left != null) {
                     lastL = lastL.left
                 }
                 val newNode = Node(lastL!!.value)
                 newNode.left = root.left
+                newNode.parent = parent
                 newNode.right = recombine(root.right, lastL.value)
                 return newNode
             }
@@ -201,7 +206,21 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
             if (!firstNext) throw IllegalStateException()
             if (oneRemove) throw IllegalStateException()
 
-            remove(node.value)
+            //remove(node.value)
+            recombine(node.parent, node.value)
+
+            when {
+                node == root -> {
+                    remove(root!!.value)
+                }
+                node.parent?.right == node -> {
+                    node.parent!!.right = recombine(node.parent!!.right, node.value)
+                }
+                node.parent?.left == node -> {
+                    node.parent!!.left = recombine(node.parent!!.left, node.value)
+                }
+            }
+            size--
             oneRemove = true
         }
 
