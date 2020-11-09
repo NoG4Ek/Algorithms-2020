@@ -30,8 +30,40 @@ fun longestCommonSubSequence(first: String, second: String): String {
  * то вернуть ту, в которой числа расположены раньше (приоритет имеют первые числа).
  * В примере ответами являются 2, 8, 9, 12 или 2, 5, 9, 12 -- выбираем первую из них.
  */
-fun longestIncreasingSubSequence(list: List<Int>): List<Int> {
-    TODO()
+fun longestIncreasingSubSequence(list: List<Int>): List<Int> { // O(n^2), O(n)
+    if (list.isEmpty())
+        return listOf()
+
+    val d = IntArray(list.size) { 0 }
+    val p = IntArray(list.size) { -1 }
+
+    for (i in list.indices) {
+        d[i] = 1;
+        p[i] = -1;
+        for (j in 0 until i) {
+            if (list[j] < list[i])
+                if (d[j] + 1 > d[i]) {
+                    d[i] = 1 + d[j];
+                    p[i] = j;
+                }
+        }
+    }
+
+    var ans = d[0]
+    var pos = 0
+    for (i in list.indices) {
+        if (d[i] > ans) {
+            ans = d[i]
+            pos = i
+        }
+    }
+
+    val path = mutableListOf<Int>()
+    while (pos != -1) {
+        path.add(list[pos])
+        pos = p[pos];
+    }
+    return path.reversed()
 }
 
 /**

@@ -15,6 +15,7 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
         var right: Node<T>? = null
     }
 
+    private var ex: Boolean = false
     private var root: Node<T>? = null
 
     override var size = 0
@@ -83,7 +84,7 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
      *
      * Средняя
      */
-    private var ex by Delegates.notNull<Boolean>()
+
     override fun remove(element: T): Boolean { // 	Ср: O(log n) Худшая: O(n)
         ex = false
         root = recombine(root, element)

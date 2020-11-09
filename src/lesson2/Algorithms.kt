@@ -139,7 +139,7 @@ fun josephTask(menNumber: Int, choiceInterval: Int): Int {
  * Если имеется несколько самых длинных общих подстрок одной длины,
  * вернуть ту из них, которая встречается раньше в строке first.
  */
-fun longestCommonSubstring(first: String, second: String): String { // O(N^2), O(N)
+fun longestCommonSubstring(first: String, second: String): String { // O(N^2), O(N^2)
     val coll = mutableListOf<MutableList<Int>>()
 
     for (i in first.indices) { // Рес: O(N)
