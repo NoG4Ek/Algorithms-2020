@@ -2,12 +2,12 @@ package lesson3
 
 import java.util.*
 import kotlin.math.max
-import kotlin.properties.Delegates
+
 
 // attention: Comparable is supported but Comparator is not
 class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), CheckableSortedSet<T> {
 
-    private class Node<T>(
+    class Node<T>(
         val value: T
     ) {
         var parent: Node<T>? = null
@@ -136,19 +136,20 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
         BinarySearchTreeIterator()
 
     inner class BinarySearchTreeIterator internal constructor() : MutableIterator<T> {
-        private var firstNext = false
-        private var oneRemove = false
-        private lateinit var node: Node<T>
-        private val stack = ArrayDeque<Node<T>>()
+        private var founds = 0
+        private var total: Int? = null
+        private var lastNext: Node<T>? = null
+        private var currentNode: Node<T>? = null
 
         init {
-            root?.let { pushToLeft(it) }
+            founds = 0
+            total = size
+            if (root != null)
+                currentNode = findSmallest(root!!)
         }
 
-        private fun pushToLeft(node: Node<T>) {
-            stack.addLast(node)
-            node.left?.let { pushToLeft(it) }
-            node.right?.let { pushToLeft(it) }
+        private fun findSmallest(current: Node<T>): Node<T> {
+            return if (current.left == null) current else findSmallest(current.left!!)
         }
 
         /**
@@ -162,10 +163,7 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
          * Средняя
          */
         override fun hasNext(): Boolean {
-            if (stack.isEmpty()) {
-                return false
-            }
-            return true
+            return founds < total!!;
         }
 
         /**
@@ -182,13 +180,26 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
          * Средняя
          */
         override fun next(): T {
-            if (!firstNext) {
-                firstNext = true
+            if (total == null || founds == total) throw NoSuchElementException()
+            if (founds == 0) {
+                lastNext = currentNode
+                founds++
+                return currentNode!!.value
             }
-            oneRemove = false
-            node = stack.first()
-            stack.removeFirst()
-            return node.value
+            founds++
+            if (currentNode!!.right != null) {
+                lastNext = findSmallest(currentNode!!.right!!)
+                currentNode = lastNext
+                return currentNode!!.value
+            }
+            if (founds != total) currentNode = smallestBiggerParent(currentNode)
+            lastNext = currentNode
+            return currentNode!!.value
+        }
+
+        fun smallestBiggerParent(node: Node<T>?): Node<T>? {
+            val comparison = node!!.value.compareTo(node.parent!!.value)
+            return if (comparison < 0) node.parent else smallestBiggerParent(node.parent)
         }
 
         /**
@@ -204,27 +215,17 @@ class KtBinarySearchTree<T : Comparable<T>> : AbstractMutableSet<T>(), Checkable
          * Сложная
          */
         override fun remove() {
-            if (!firstNext) throw IllegalStateException()
-            if (oneRemove) throw IllegalStateException()
+            if (lastNext == null) throw IllegalStateException()
 
-            //remove(node.value)
-            recombine(node.parent, node.value)
-
-            when {
-                node == root -> {
+            when (lastNext) {
+                root -> {
                     remove(root!!.value)
                 }
-                node.parent?.right == node -> {
-                    node.parent!!.right = recombine(node.parent!!.right, node.value)
-                }
-                node.parent?.left == node -> {
-                    node.parent!!.left = recombine(node.parent!!.left, node.value)
-                }
+                else -> lastNext!!.parent = recombine(lastNext!!.parent!!, lastNext!!.value)
             }
             size--
-            oneRemove = true
+            lastNext = null
         }
-
     }
 
     /**
