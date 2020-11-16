@@ -1,0 +1,1019 @@
+{
+  "data" : [ {
+    "packageName" : "lesson1.TaskTestsKotlin",
+    "methodName" : "testSortSequence",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsKotlin",
+    "methodName" : "testSortAddresses",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsKotlin",
+    "methodName" : "testMergeArrays",
+    "tags" : [ "2" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsKotlin",
+    "methodName" : "testSortTemperatures",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsKotlin",
+    "methodName" : "testSortTimes",
+    "tags" : [ "3" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "longCountingSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "insertionSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "longLibrarySortForImmutable",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "longQuickSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "longMergeSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "longLibrarySortForMutable",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "longHeapSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "insertionSortStrings",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "quickSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "mergeSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTestKt",
+    "methodName" : "longInsertionSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsJava",
+    "methodName" : "testMergeArraysJava",
+    "tags" : [ "2" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsJava",
+    "methodName" : "testSortTemperaturesJava",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsJava",
+    "methodName" : "testSortSequenceJava",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsJava",
+    "methodName" : "testSortAddressesJava",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.TaskTestsJava",
+    "methodName" : "testSortTimesJava",
+    "tags" : [ "3" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "longCountingSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "insertionSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "longQuickSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "longMergeSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "longHeapSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "insertionSortStrings",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "quickSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "mergeSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson1.SortsTest",
+    "methodName" : "longInsertionSort",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson2.AlgorithmsTestsJava",
+    "methodName" : "testOptimizeBuyAndSellJava",
+    "tags" : [ "2" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson2.AlgorithmsTestsJava",
+    "methodName" : "testJosephTaskJava",
+    "tags" : [ "2" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson2.AlgorithmsTestsJava",
+    "methodName" : "testCalcPrimesNumberJava",
+    "tags" : [ "3" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson2.AlgorithmsTestsJava",
+    "methodName" : "testLongestCommonSubstringJava",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson2.AlgorithmsTestsKotlin",
+    "methodName" : "testJosephTask",
+    "tags" : [ "2" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson2.AlgorithmsTestsKotlin",
+    "methodName" : "testOptimizeBuyAndSell",
+    "tags" : [ "2" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson2.AlgorithmsTestsKotlin",
+    "methodName" : "testCalcPrimesNumber",
+    "tags" : [ "3" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson2.AlgorithmsTestsKotlin",
+    "methodName" : "testLongestCommonSubstring",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "tailSetTest",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "addTest",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "subSetFirstAndLastTest",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "subSetRelationTest",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "initTest",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "headSetRelationTest",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "subSetTest",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "iteratorTest",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "iteratorRemoveTest",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "tailSetRelationTest",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "removeTest",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "firstAndLastTest",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.KtBinarySearchTreeTest",
+    "methodName" : "headSetTest",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "addTestJava",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "headSetRelationTestJava",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "tailSetRelationTestJava",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "headSetTestJava",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "subSetFirstAndLastTestJava",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "iteratorTestJava",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "iteratorRemoveTestJava",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "subSetRelationTestJava",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "tailSetTestJava",
+    "tags" : [ "4" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "subSetTestJava",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "firstAndLastTestJava",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "initTestJava",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.BinarySearchTreeTest",
+    "methodName" : "removeTestJava",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.SampleIterableCollectionTest",
+    "methodName" : "testAdd",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.SampleIterableCollectionTest",
+    "methodName" : "testRemoveFirst",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.SampleIterableCollectionTest",
+    "methodName" : "testRemove",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson3.PositiveSortedSetTest",
+    "methodName" : "basic",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson4.KtTrieTest",
+    "methodName" : "iteratorTest",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson4.KtTrieTest",
+    "methodName" : "iteratorRemoveTest",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson4.KtTrieTest",
+    "methodName" : "generalTest",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson4.TrieTest",
+    "methodName" : "iteratorTestJava",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson4.TrieTest",
+    "methodName" : "iteratorRemoveTestJava",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson4.TrieTest",
+    "methodName" : "generalTestJava",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson5.KtOpenAddressingSetTest",
+    "methodName" : "addTest",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson5.KtOpenAddressingSetTest",
+    "methodName" : "iteratorTest",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson5.KtOpenAddressingSetTest",
+    "methodName" : "iteratorRemoveTest",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson5.KtOpenAddressingSetTest",
+    "methodName" : "removeTest",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson5.OpenAddressingSetTest",
+    "methodName" : "addTestJava",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson5.OpenAddressingSetTest",
+    "methodName" : "iteratorTestJava",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson5.OpenAddressingSetTest",
+    "methodName" : "iteratorRemoveTestJava",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson5.OpenAddressingSetTest",
+    "methodName" : "removeTestJava",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.BridgesTest",
+    "methodName" : "simple",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.BridgesTest",
+    "methodName" : "none",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphBuilderTest",
+    "methodName" : "generalTest",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsKotlin",
+    "methodName" : "testLongestSimplePath",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsKotlin",
+    "methodName" : "testMinimumSpanningTree",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsKotlin",
+    "methodName" : "testLargestIndependentVertexSet",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsKotlin",
+    "methodName" : "testBaldaSearcher",
+    "tags" : [ "6" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsKotlin",
+    "methodName" : "testFindEulerLoop",
+    "tags" : [ "6" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.NoughtsAndCrossesTest",
+    "methodName" : "gameFive",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.NoughtsAndCrossesTest",
+    "methodName" : "gameFour",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.NoughtsAndCrossesTest",
+    "methodName" : "gameOne",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.NoughtsAndCrossesTest",
+    "methodName" : "gameTwo",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.NoughtsAndCrossesTest",
+    "methodName" : "gameThree",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.VoyagerTest",
+    "methodName" : "test1",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsJava",
+    "methodName" : "testBaldaSearcherJava",
+    "tags" : [ "6" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsJava",
+    "methodName" : "testFindEulerLoopJava",
+    "tags" : [ "6" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsJava",
+    "methodName" : "testMinimumSpanningTreeJava",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsJava",
+    "methodName" : "testLargestIndependentVertexSetJava",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.GraphTestsJava",
+    "methodName" : "testLongestSimplePathJava",
+    "tags" : [ "8" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.DijkstraTest",
+    "methodName" : "test1",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson6.DijkstraTest",
+    "methodName" : "test2",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.fibonacci.FibTest",
+    "methodName" : "fib",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.DynamicTestsJava",
+    "methodName" : "testLongestCommonSubSequenceJava",
+    "tags" : [ "6" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.DynamicTestsJava",
+    "methodName" : "testShortestPathOnFieldJava",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.DynamicTestsJava",
+    "methodName" : "testLongestIncreasingSubSequenceJava",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.rod.CutTest",
+    "methodName" : "cutRod",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.rod.CutTest",
+    "methodName" : "cutRod2",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.rod.CutTest",
+    "methodName" : "cutRod3",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.DynamicTestsKotlin",
+    "methodName" : "testLongestIncreasingSubSequence",
+    "tags" : [ "7" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.DynamicTestsKotlin",
+    "methodName" : "testLongestCommonSubSequence",
+    "tags" : [ "6" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.DynamicTestsKotlin",
+    "methodName" : "testShortestPathOnField",
+    "tags" : [ "5" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.knapsack.KnapsackTest",
+    "methodName" : "fillKnapsackGreedy2",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.knapsack.KnapsackTest",
+    "methodName" : "fillKnapsackGreedy3",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.knapsack.KnapsackTest",
+    "methodName" : "fillKnapsackGreedy",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.knapsack.KnapsackTest",
+    "methodName" : "fillKnapsackDynamic2",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.knapsack.KnapsackTest",
+    "methodName" : "fillKnapsackDynamic3",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.knapsack.KnapsackTest",
+    "methodName" : "fillKnapsackDynamic",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson7.knapsack.KnapsackTest",
+    "methodName" : "fillKnapsackGreedyBigTest",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson8.genetic.GeneticVoyagingPathSearcherTest",
+    "methodName" : "findVoyagingPath",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson8.HeuristicsTestsKotlin",
+    "methodName" : "testFillKnapsackCompareWithGreedyTest",
+    "tags" : [ "12" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson8.HeuristicsTestsKotlin",
+    "methodName" : "testFindVoyagingPathHeuristics",
+    "tags" : [ "12" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson8.HeuristicsTestsJava",
+    "methodName" : "testFillKnapsackCompareWithGreedyTestJava",
+    "tags" : [ "12" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson8.HeuristicsTestsJava",
+    "methodName" : "testFindVoyagingPathHeuristicsJava",
+    "tags" : [ "12" ],
+    "results" : [ {
+      "status" : "NOT_IMPLEMENTED",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson8.genetic.ChromosomeTest",
+    "methodName" : "mutate",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  }, {
+    "packageName" : "lesson8.genetic.ChromosomeTest",
+    "methodName" : "crossBreed",
+    "tags" : [ "Example" ],
+    "results" : [ {
+      "status" : "SUCCESSFUL",
+      "failure" : null
+    } ]
+  } ]
+}

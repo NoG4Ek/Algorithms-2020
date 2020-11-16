@@ -2,6 +2,8 @@
 
 package lesson7
 
+import kotlin.text.StringBuilder
+
 /**
  * Наибольшая общая подпоследовательность.
  * Средняя
@@ -14,8 +16,52 @@ package lesson7
  * Если есть несколько самых длинных общих подпоследовательностей, вернуть любую из них.
  * При сравнении подстрок, регистр символов *имеет* значение.
  */
-fun longestCommonSubSequence(first: String, second: String): String {
-    TODO()
+fun longestCommonSubSequence(first: String, second: String): String { // O(n * m), O(n * m)
+    val coll = mutableListOf<MutableList<Int>>()
+    val prev = mutableListOf<MutableList<Pair<Int, Int>>>()
+
+    for (i in 0..first.length) {
+        coll.add(mutableListOf())
+        prev.add(mutableListOf())
+        for (j in 0..second.length) {
+            coll[i].add(0)
+            prev[i].add(Pair(-1, -1))
+        }
+    }
+
+    for (i in 1..first.length)
+        for (j in 1..second.length) {
+            if (first[i - 1] == second[j - 1]) {
+                coll[i][j] = coll[i - 1][j - 1] + 1
+                prev[i][j] = Pair(i - 1, j - 1)
+            } else {
+                if (coll[i - 1][j] >= coll[i][j - 1]) {
+                    coll[i][j] = coll[i - 1][j]
+                    prev[i][j] = Pair(i - 1, j)
+                } else {
+                    coll[i][j] = coll[i][j - 1]
+                    prev[i][j] = Pair(i, j - 1)
+                }
+            }
+        }
+
+    return find(first.length, second.length, StringBuilder(), first, prev)
+}
+
+fun find(i: Int, j: Int, str: StringBuilder, first: String, prev: List<MutableList<Pair<Int, Int>>>): String {
+    if (i == 0 || j == 0)
+        return str.toString()
+    if (prev[i][j] == Pair(i - 1, j - 1)) {
+        find(i - 1, j - 1, str, first, prev)
+        str.append(first[i - 1])
+    } else {
+        if (prev[i][j] == Pair(i - 1, j)) {
+            find(i - 1, j, str, first, prev)
+        } else {
+            find(i, j - 1, str, first, prev)
+        }
+    }
+    return str.toString()
 }
 
 /**

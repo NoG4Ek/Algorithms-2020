@@ -1,8 +1,12 @@
 package lesson7
 
+import java.io.File
+import java.io.IOException
 import kotlin.test.assertEquals
 
 abstract class AbstractDynamicTests {
+    private fun readFromFile(inputName: String): List<String> = File(inputName).readText().split(" ")
+
     fun longestCommonSubSequence(longestCommonSubSequence: (String, String) -> String) {
         assertEquals("", longestCommonSubSequence("мой мир", "я"))
         assertEquals("1", longestCommonSubSequence("1", "1"))
@@ -35,6 +39,13 @@ abstract class AbstractDynamicTests {
                 """.trimIndent()
             ).length, "Answer must have length of $expectedLength2"
         )
+        assertEquals(
+            "B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z",
+            longestCommonSubSequence(
+                "B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z",
+                readFromFile("input/MyTests/longestSub_outMy1.txt").toString(),
+            )
+        )
     }
 
     fun longestIncreasingSubSequence(longestIncreasingSubSequence: (List<Int>) -> List<Int>) {
@@ -54,6 +65,11 @@ abstract class AbstractDynamicTests {
                     45, 76, 15, 99, 100, 88, 84, 35, 88
                 )
             )
+        )
+        val exp: List<Int> = Array(1000) { i: Int -> i + 1 }.toList()
+        assertEquals(
+            exp,
+            longestIncreasingSubSequence(readFromFile("input/MyTests/longestSubInc_inMy1.txt").map { it.toInt() })
         )
     }
 
