@@ -7,7 +7,13 @@ class HeuristicsTestsJava : AbstractHeuristicsTests() {
     @Test
     @Tag("12")
     fun testFillKnapsackCompareWithGreedyTestJava() {
-        fillKnapsackCompareWithGreedyTest { load, items -> JavaHeuristicsTasks.fillKnapsackHeuristics(load, items) }
+        fillKnapsackCompareWithGreedyTest { load, items, inOneGen ->
+            JavaHeuristicsTasks.fillKnapsackHeuristics(
+                load,
+                items,
+                inOneGen
+            )
+        }
     }
 
     @Test

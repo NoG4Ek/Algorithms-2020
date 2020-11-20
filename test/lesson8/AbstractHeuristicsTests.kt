@@ -12,7 +12,7 @@ import kotlin.test.assertTrue
 
 abstract class AbstractHeuristicsTests {
 
-    fun fillKnapsackCompareWithGreedyTest(fillKnapsackHeuristics: (Int, List<Item>) -> Fill) {
+    fun fillKnapsackCompareWithGreedyTest(fillKnapsackHeuristics: (Int, List<Item>, Int) -> Fill) {
         for (i in 0..9) {
             val items = mutableListOf<Item>()
             val random = Random()
@@ -20,7 +20,7 @@ abstract class AbstractHeuristicsTests {
                 items += Item(1 + random.nextInt(10000), 300 + random.nextInt(600))
             }
             try {
-                val fillHeuristics = fillKnapsackHeuristics(1000, items)
+                val fillHeuristics = fillKnapsackHeuristics(1000, items, 1000)
                 println("Heuristics score = " + fillHeuristics.cost)
                 val fillGreedy = fillKnapsackGreedy(1000, items)
                 println("Greedy score = " + fillGreedy.cost)
