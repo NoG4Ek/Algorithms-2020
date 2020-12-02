@@ -16,4 +16,10 @@ class HeuristicsTestsKotlin : AbstractHeuristicsTests() {
     fun testFindVoyagingPathHeuristics() {
         findVoyagingPathHeuristics { findVoyagingPathHeuristics() }
     }
+
+    @Test
+    @Tag("12")
+    fun testCutRodHeuristics() {
+        cutRodCompareWith90 { length, storage, inOneGen -> cutRodHeuristics(length, storage, inOneGen) }
+    }
 }

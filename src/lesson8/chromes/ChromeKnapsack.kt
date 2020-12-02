@@ -1,10 +1,8 @@
-package lesson8
+package lesson8.chromes
 
 import lesson7.knapsack.Item
-import java.util.*
 
-//data class Chroma(var genes: List<Int>, var rating: Int, var weight: Int, var cost: Int)
-class Chroma(val genes: List<Int>) {
+class ChromeKnapsack(val genes: List<Int>) {
     var rating: Int = 0
     var weight: Int = 0
     var cost: Int = 0
@@ -44,12 +42,12 @@ class Chroma(val genes: List<Int>) {
         rating = permCost - weight
     }
 
-    fun cross(other: Chroma, load: Int, items: List<Item>): Chroma {
+    fun cross(other: ChromeKnapsack, load: Int, items: List<Item>): ChromeKnapsack {
         val chNew = mutableListOf<Int>()
         var w = 0
 
-        for (j in genes) {
-            for (k in other.genes) {
+        for (j in genes) { // load / minItemW - худ
+            for (k in other.genes) { // load / minItemW - худ
                 if (j == k) {
                     chNew.add(j)
                     w += items[j].weight
@@ -75,7 +73,7 @@ class Chroma(val genes: List<Int>) {
             }
         }
 
-        val crChroma = Chroma(chNew)
+        val crChroma = ChromeKnapsack(chNew)
         crChroma.calcAttributes(load, items)
 
         return crChroma
